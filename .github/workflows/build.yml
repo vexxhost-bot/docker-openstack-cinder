@@ -55,12 +55,12 @@ jobs:
           RUNTIME_IMAGE=quay.io/vexxhost/openstack-runtime-${{ matrix.from }}
           RELEASE=${{ matrix.release }}
           PROJECT=cinder
-          PROJECT_REPO=https://github.com/openstack/cinder
+          PROJECT_REPO=https://github.com/vexxhost/cinder
           PROJECT_REF=${{ env.PROJECT_REF }}
           EXTRAS=
           PROFILES=ceph qemu
           DIST_PACKAGES=kubectl lsscsi nvme-cli sysfsutils udev util-linux
-          PIP_PACKAGES=cryptography purestorage
+          PIP_PACKAGES=cryptography python-binary-memcached purestorage
         cache-from: type=gha,scope=${{ matrix.from }}-${{ matrix.release }}
         cache-to: type=gha,mode=max,scope=${{ matrix.from }}-${{ matrix.release }}
         context: .
